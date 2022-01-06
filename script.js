@@ -140,3 +140,12 @@ for (i = 0; i < resetButtons.length; i++) {
         makeGrid(5,6);
     });
 }
+
+$(document).ready(function() {
+    $(".menu").click( function(){
+        $("#help").toggle();
+    });
+    $("#close").click( function(){
+        $("#help").hide();
+    })
+});

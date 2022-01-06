@@ -64,6 +64,61 @@ header {
     justify-content: center;
 }
 
+#help {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px #888888;
+    padding: 20px;
+}
+
+.example-row {
+    display: flex;
+}
+
+.example {
+    font-size: 24px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    width: 35px;
+    border: 2px solid rgb(204, 204, 204);
+    margin: 2px;
+}
+
+.header {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#close {
+    font-size: 30px;
+    padding-right: 25px;
+    cursor: pointer;
+}
+
+.w, .l, .u {
+    color: white;
+}
+
+.w {
+    background-color: rgb(106, 170, 100);
+    border: 2px solid rgb(106, 170, 100);
+}
+
+.l {
+    background-color: rgb(201, 180, 88);
+    border: 2px solid rgb(201, 180, 88);
+}
+
+.u {
+    background-color: grey;
+    border: 2px solid grey;
+}
+
 #answer-win, #answer-lose {
     font-size: 30px;
     padding-bottom: 24px;
@@ -80,10 +135,14 @@ header {
     margin-top: 100px;
 }
 
-.menu {
+.menu, .settings {
     cursor: pointer;
     user-select: none;
     font-size: 30px;
+}
+
+.settings {
+    font-size: 24px;
 }
 
 #error, #not-a-word {
