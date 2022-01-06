@@ -15,11 +15,25 @@
             <div class="title">ENDLESS WORDLE</div>
             <div class="menu">&#9881;</div>
         </header>
-        <div id="error">
-            Not enough letters
-        </div>
-        <div id="not-a-word">
-            Entered word is not in word list
+        <div class = "pop-ups">
+            <div id="error">
+                Not enough letters
+            </div>
+            <div id="not-a-word">
+                Entered word is not in word list
+            </div>
+            <div id="winner">
+                <h1>You win!</h1>
+                <h2>Congratulations, the word was</h2>
+                <div id="answer-win"></div>
+                <button class="restart">Play again</button>
+            </div>
+            <div id="loser">
+                <h1>You lose :(</h1>
+                <h2>You did not guess the word, which was</h2>
+                <div id="answer-lose"></div>
+                <button class="restart">Play again</button>
+            </div>
         </div>
         <div id="game">
         </div>
@@ -61,8 +75,9 @@
         </div>
     </div>
 </body>
-<script src="script.js"></script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="script.js"></script>
 </html>

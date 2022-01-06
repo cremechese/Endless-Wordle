@@ -2,6 +2,7 @@ const rows = document.getElementsByClassName("game-row");
 const letterbox = document.getElementsByClassName("letterbox");
 const letters = document.getElementsByClassName("letter");
 const container = document.getElementById("game");
+const resetButtons = document.getElementsByClassName("restart");
 const green = "rgb(106, 170, 100)";
 const yellow = "rgb(201, 180, 88)";
 const grey = "grey";
@@ -61,6 +62,7 @@ document.getElementById("enter").addEventListener("click", function(event) {
                     tempWord = tempWord.replace(letterbox[charCount-(5-i)].innerHTML, "");
                 }
             }
+
             for(i = 0; i < 5; i++) {
                 if (tempWord.includes(letterbox[charCount-(5-i)].innerHTML)) {
                     if (letterbox[charCount-(5-i)].style.backgroundColor !== green) {
@@ -86,6 +88,13 @@ document.getElementById("enter").addEventListener("click", function(event) {
                 }
             }
         round++;
+        if(tempWord === "") {
+            $("#answer-win").html(word);
+            $("#winner").show();
+        } else if (round === 6){
+            $("#answer-lose").html(word);
+            $("#loser").show();
+        }
         } else {
             $( "#not-a-word" ).show(); 
             setTimeout(function() {
@@ -110,3 +119,24 @@ document.getElementById("backspace").addEventListener("click", function(event) {
 });
 
 makeGrid(5,6);
+
+for (i = 0; i < resetButtons.length; i++) {
+    resetButtons[i].addEventListener("click", function(event) {
+        console.log("reset attempted");
+        $("#winner").hide();
+        $("#loser").hide();
+        word = wordlist[Math.floor(Math.random()*wordlist.length)];
+        charCount = 0;
+        round = 0;
+        let currentRowAmount = rows.length;
+        for (r = currentRowAmount - 1; r > -1; r--) {
+            rows[r].remove();
+        }
+    
+        for (i = 0; i < letters.length; i++) {
+            letters[i].style.backgroundColor = "rgb(204, 204, 204)";
+        }
+    
+        makeGrid(5,6);
+    });
+}

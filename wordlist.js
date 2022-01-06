@@ -2498,4 +2498,8 @@ const wordlist = ["ABACK",
 "YOURS",
 "YOUTH",
 "YUMMY",
-"ZONES"];
+"ZONES",
+"GLEBE",
+"SNEED",
+"PROOT",
+"GREED"];
