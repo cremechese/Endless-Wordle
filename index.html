@@ -14,6 +14,9 @@
             <div class="title">ENDLESS WORDLE</div>
             <div class="menu">&#9881;</div>
         </header>
+        <div id="error">
+            Not enough letters
+        </div>
         <div id="game">
         </div>
         <div id="keyboard">
@@ -41,7 +44,7 @@
                 <div class="letter" id="L">L</div>
             </div>
             <div class="row">
-                <div class="letter" id="Enter">ENTER</div>
+                <div class="enter" id="enter">ENTER</div>
                 <div class="letter" id="Z">Z</div>
                 <div class="letter" id="X">X</div>
                 <div class="letter" id="C">C</div>
@@ -49,10 +52,13 @@
                 <div class="letter" id="B">B</div>
                 <div class="letter" id="N">N</div>
                 <div class="letter" id="M">M</div>
-                <div class="letter" id="Backspace"><<</div>
+                <div class="backspace" id="backspace"><<</div>
             </div>
         </div>
     </div>
 </body>
 <script src="script.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 </html>
