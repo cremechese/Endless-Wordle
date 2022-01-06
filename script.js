@@ -122,7 +122,6 @@ makeGrid(5,6);
 
 for (i = 0; i < resetButtons.length; i++) {
     resetButtons[i].addEventListener("click", function(event) {
-        console.log("reset attempted");
         $("#winner").hide();
         $("#loser").hide();
         word = wordlist[Math.floor(Math.random()*wordlist.length)];
