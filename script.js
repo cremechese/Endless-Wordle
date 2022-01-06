@@ -3,9 +3,10 @@ const letterbox = document.getElementsByClassName("letterbox");
 const letters = document.getElementsByClassName("letter");
 const container = document.getElementById("game");
 
-let word = "BASIC"
+let word = wordlist[Math.floor(Math.random()*wordlist.length)];
 let charCount = 0;
 let submitted = false;
+let round = 0;
 
 
 function makeGrid(x, y) {
@@ -25,16 +26,15 @@ function makeGrid(x, y) {
 
 for (i = 0; i < letters.length; i++) {
     letters[i].addEventListener("click", function(event) {
-        if(charCount % 5 !== 0 || charCount === 0) {
+    if(charCount % 5 !== 0 || charCount === 0) {
             letterbox[charCount].innerHTML = event.target.innerHTML;
             letterbox[charCount].style.borderColor = "black";
             charCount++;
         }
-        if(charCount % 5 === 0 && submitted === true) {
+        if(charCount % 5 === 0 && charCount/round===5) {
             letterbox[charCount].innerHTML = event.target.innerHTML;
             letterbox[charCount].style.borderColor = "black";
             charCount++;
-            submitted = false;
         }
         });
 }
@@ -49,10 +49,16 @@ document.getElementById("enter").addEventListener("click", function(event) {
         for(i = 0; i < 5; i++) {
             if(letterbox[charCount-(5-i)].innerHTML === word.substr(i,1)) {
                 letterbox[charCount-(5-i)].style.backgroundColor = "green";
-                $("#"+word.substr(i,1)).css("background-color","green");
+                $("#"+letterbox[charCount-(5-i)].innerHTML).css("background-color","green");
+            } else if (word.includes(letterbox[charCount-(5-i)].innerHTML)) {
+                letterbox[charCount-(5-i)].style.backgroundColor = "yellow";
+                $("#"+letterbox[charCount-(5-i)].innerHTML).css("background-color","yellow");
+            } else {
+                letterbox[charCount-(5-i)].style.backgroundColor = "grey";
+                $("#"+letterbox[charCount-(5-i)].innerHTML).css("background-color","grey");
             }
-        submitted = true;
         }
+        round++;
     } else {
         $( "#error" ).show(); 
         setTimeout(function() {
@@ -63,7 +69,7 @@ document.getElementById("enter").addEventListener("click", function(event) {
 });
 
 document.getElementById("backspace").addEventListener("click", function(event) {
-    if(charCount>0) {
+    if(charCount % 5 !== 0 || (charCount % 5 === 0 && charCount/round!==5)) {
         charCount--;
         letterbox[charCount].innerHTML = "";
         letterbox[charCount].style.borderColor = "rgb(204, 204, 204)";
