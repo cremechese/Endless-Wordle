@@ -3,8 +3,9 @@ const letterbox = document.getElementsByClassName("letterbox");
 const letters = document.getElementsByClassName("letter");
 const container = document.getElementById("game");
 
-let word = "basic"
+let word = "BASIC"
 let charCount = 0;
+let submitted = false;
 
 
 function makeGrid(x, y) {
@@ -29,6 +30,12 @@ for (i = 0; i < letters.length; i++) {
             letterbox[charCount].style.borderColor = "black";
             charCount++;
         }
+        if(charCount % 5 === 0 && submitted === true) {
+            letterbox[charCount].innerHTML = event.target.innerHTML;
+            letterbox[charCount].style.borderColor = "black";
+            charCount++;
+            submitted = false;
+        }
         });
 }
 
@@ -39,6 +46,12 @@ document.getElementById("enter").addEventListener("click", function(event) {
             letterbox[charCount-3].innerHTML +
             letterbox[charCount-2].innerHTML +
             letterbox[charCount-1].innerHTML;
+        for(i = 0; i < 5; i++) {
+            if(letterbox[charCount-(5-i)].innerHTML === word.substr(i,1)) {
+                letterbox[charCount-(5-i)].style.backgroundColor = "green";
+            }
+        submitted = true;
+        }
     } else {
         $( "#error" ).show(); 
         setTimeout(function() {
