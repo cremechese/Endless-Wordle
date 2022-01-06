@@ -49,6 +49,7 @@ document.getElementById("enter").addEventListener("click", function(event) {
         for(i = 0; i < 5; i++) {
             if(letterbox[charCount-(5-i)].innerHTML === word.substr(i,1)) {
                 letterbox[charCount-(5-i)].style.backgroundColor = "green";
+                $("#"+word.substr(i,1)).css("background-color","green");
             }
         submitted = true;
         }
