@@ -65,7 +65,7 @@ header {
     font-size: 30px;
 }
 
-#error {
+#error, #not-a-word {
     background-color: rgba(0, 0, 0, .7);
     color: white;
     padding: 16px;
