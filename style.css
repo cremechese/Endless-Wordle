@@ -21,6 +21,7 @@
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
+    touch-action: manipulation;
 }
 
 .game-container {
@@ -76,7 +77,7 @@
 
 #board {
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
     margin: 0 auto;
     height: 100%;
     display: flex;
