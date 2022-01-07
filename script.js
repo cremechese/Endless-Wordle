@@ -3,8 +3,8 @@ const letterbox = document.getElementsByClassName("letterbox");
 const letters = document.getElementsByClassName("letter");
 const container = document.getElementById("game");
 const resetButtons = document.getElementsByClassName("restart");
-const green = "rgb(106, 170, 100)";
-const yellow = "rgb(201, 180, 88)";
+let green = "rgb(106, 170, 100)";
+let yellow = "rgb(201, 180, 88)";
 const grey = "grey";
 const white = "white";
 
@@ -12,6 +12,7 @@ let word = wordlist[Math.floor(Math.random()*wordlist.length)];
 let charCount = 0;
 let submitted = false;
 let round = 0;
+let colorBlindMode = document.getElementById("colorblind").checked;
 
 
 function makeGrid(x, y) {
@@ -46,6 +47,16 @@ for (i = 0; i < letters.length; i++) {
 
 document.getElementById("enter").addEventListener("click", function(event) {
     let tempWord = word;
+
+    colorBlindMode = document.getElementById("colorblind").checked;
+    if(colorBlindMode) {
+        green = "rgb(245, 121, 58)";
+        yellow = "rgb(133, 192, 249)";
+    } else {
+        green = "rgb(106, 170, 100)";
+        yellow = "rgb(201, 180, 88)";
+    }
+
     if (charCount % 5 === 0 && charCount !== 0) {
         enteredWord = letterbox[charCount-5].innerHTML +
             letterbox[charCount-4].innerHTML +
@@ -146,5 +157,42 @@ $(document).ready(function() {
     });
     $("#close").click( function(){
         $("#help").hide();
-    })
+        $("#settings").hide();
+    });
+    $("#settings-close").click( function(){
+        $("#help").hide();
+        $("#settings").hide();
+    });
+    $(".settings").click( function(){
+        $("#settings").toggle();
+    });
+    $("#colorblind").click( function() {
+        for (i = 0; i < letters.length; i++) {
+            if(letters[i].style.backgroundColor === "rgb(106, 170, 100)") { //green to orange
+                letters[i].style.backgroundColor = "rgb(245, 121, 58)";
+            } else if(letters[i].style.backgroundColor === "rgb(245, 121, 58)") { // orange to green
+                letters[i].style.backgroundColor = "rgb(106, 170, 100)";
+            } else if(letters[i].style.backgroundColor === "rgb(201, 180, 88)") { // yellow to blue
+                letters[i].style.backgroundColor = "rgb(133, 192, 249)";
+            } else if(letters[i].style.backgroundColor === "rgb(133, 192, 249)") { // blue to yellow
+                letters[i].style.backgroundColor = "rgb(201, 180, 88)";
+            }
+        }
+
+        for (i = 0; i < letterbox.length; i++) {
+            if(letterbox[i].style.backgroundColor === "rgb(106, 170, 100)") { //green to orange
+                letterbox[i].style.backgroundColor = "rgb(245, 121, 58)";
+                letterbox[i].style.borderColor = "rgb(245, 121, 58)";
+            } else if(letterbox[i].style.backgroundColor === "rgb(245, 121, 58)") { // orange to green
+                letterbox[i].style.backgroundColor = "rgb(106, 170, 100)";
+                letterbox[i].style.borderColor = "rgb(106, 170, 100)";
+            } else if(letterbox[i].style.backgroundColor === "rgb(201, 180, 88)") { // yellow to blue
+                letterbox[i].style.backgroundColor = "rgb(133, 192, 249)";
+                letterbox[i].style.borderColor = "rgb(133, 192, 249)";
+            } else if(letterbox[i].style.backgroundColor === "rgb(133, 192, 249)") { // blue to yellow
+                letterbox[i].style.backgroundColor = "rgb(201, 180, 88)";
+                letterbox[i].style.borderColor = "rgb(201, 180, 88)";
+            }
+        }
+    });
 });
