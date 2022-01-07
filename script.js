@@ -159,6 +159,20 @@ for (i = 0; i < resetButtons.length; i++) {
 $(document).ready(function() {
     $(".menu").click( function(){
         $("#help").toggle();
+        $("#settings").hide();
+        if (document.getElementById("colorblind").checked) {   
+            $(".w").css("background-color","rgb(245, 121, 58)");
+            $(".w").css("border-color","rgb(245, 121, 58)");
+            
+            $(".l").css("background-color", "rgb(133, 192, 249)");
+            $(".l").css("border-color","rgb(133, 192, 249)");
+        } else {
+            $(".w").css("background-color","rgb(106, 170, 100)");
+            $(".w").css("border-color","rgb(106, 170, 100)");
+            
+            $(".l").css("background-color", "rgb(201, 180, 88)");
+            $(".l").css("border-color","rgb(201, 180, 88)");
+        }
     });
     $("#close").click( function(){
         $("#help").hide();
@@ -176,6 +190,7 @@ $(document).ready(function() {
     });
     $(".settings").click( function(){
         $("#settings").toggle();
+        $("#help").hide();
     });
     $("#colorblind").click( function() {
         for (i = 0; i < letters.length; i++) {
@@ -205,5 +220,11 @@ $(document).ready(function() {
                 letterbox[i].style.borderColor = "rgb(201, 180, 88)";
             }
         }
+
+
+        
+
+
+
     });
 });
