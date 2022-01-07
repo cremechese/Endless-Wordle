@@ -52,7 +52,7 @@ document.getElementById("enter").addEventListener("click", function(event) {
             letterbox[charCount-3].innerHTML +
             letterbox[charCount-2].innerHTML +
             letterbox[charCount-1].innerHTML;
-        if(wordlist.includes(enteredWord)){
+        if(guesslist.includes(enteredWord)){
             for(i = 0; i < 5; i++) {
                 if(letterbox[charCount-(5-i)].innerHTML === word.substr(i,1)) {
                     letterbox[charCount-(5-i)].style.backgroundColor = green;
