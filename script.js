@@ -139,6 +139,7 @@ for (i = 0; i < resetButtons.length; i++) {
     resetButtons[i].addEventListener("click", function(event) {
         $("#winner").hide();
         $("#loser").hide();
+        $("#play-again").hide();
         word = wordlist[Math.floor(Math.random()*wordlist.length)];
         charCount = 0;
         round = 0;
