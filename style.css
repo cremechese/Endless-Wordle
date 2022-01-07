@@ -56,6 +56,10 @@
     grid-gap: 5px;
 }
 
+button {
+    color: black;
+}
+
 .letterbox {
     border: 2px solid rgb(204, 204, 204);
     width: min(15vw,7vh);
