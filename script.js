@@ -57,7 +57,7 @@ document.getElementById("enter").addEventListener("click", function(event) {
         yellow = "rgb(201, 180, 88)";
     }
 
-    if (charCount % 5 === 0 && charCount !== 0) {
+    if (charCount % 5 === 0 && charCount !== 0 && charCount/round!==5) {
         enteredWord = letterbox[charCount-5].innerHTML +
             letterbox[charCount-4].innerHTML +
             letterbox[charCount-3].innerHTML +
