@@ -118,13 +118,14 @@ document.getElementById("enter").addEventListener("click", function(event) {
             setTimeout(function() {
                $( "#not-a-word" ).hide();
              }, 3000);
+             $(".game-row:nth-child("+(round+1)+")").effect("shake","left", "5");
         }
     } else {
         $( "#error" ).show(); 
         setTimeout(function() {
            $( "#error" ).hide();
          }, 3000);
-        $(".game-row:nth-child("+Math.floor(charCount/5)+1+")").effect("shake");
+        $(".game-row:nth-child("+(round+1)+")").effect("shake", "left", "5");
     }
 });
 
