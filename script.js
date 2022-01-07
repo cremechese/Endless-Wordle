@@ -7,6 +7,7 @@ let green = "rgb(106, 170, 100)";
 let yellow = "rgb(201, 180, 88)";
 const grey = "grey";
 const white = "white";
+let gameEnd = false;
 
 let word = wordlist[Math.floor(Math.random()*wordlist.length)];
 let charCount = 0;
@@ -32,12 +33,12 @@ function makeGrid(x, y) {
 
 for (i = 0; i < letters.length; i++) {
     letters[i].addEventListener("click", function(event) {
-    if(charCount % 5 !== 0 || charCount === 0) {
+    if(charCount % 5 !== 0 || charCount === 0 && !gameEnd) {
             letterbox[charCount].innerHTML = event.target.innerHTML;
             letterbox[charCount].style.borderColor = "black";
             charCount++;
         }
-        if(charCount % 5 === 0 && charCount/round===5) {
+        if(charCount % 5 === 0 && charCount/round===5 && !gameEnd) {
             letterbox[charCount].innerHTML = event.target.innerHTML;
             letterbox[charCount].style.borderColor = "black";
             charCount++;
@@ -57,7 +58,7 @@ document.getElementById("enter").addEventListener("click", function(event) {
         yellow = "rgb(201, 180, 88)";
     }
 
-    if (charCount % 5 === 0 && charCount !== 0 && charCount/round!==5) {
+    if (charCount % 5 === 0 && charCount !== 0 && charCount/round!==5 && !gameEnd) {
         enteredWord = letterbox[charCount-5].innerHTML +
             letterbox[charCount-4].innerHTML +
             letterbox[charCount-3].innerHTML +
@@ -103,11 +104,13 @@ document.getElementById("enter").addEventListener("click", function(event) {
             $("#answer-win").html(word);
             $("#answer").html(word);
             $("#winner").show();
+            gameEnd = true;
             $("#play-again").css("display", "flex");
         } else if (round === 6){
             $("#answer-lose").html(word);
             $("#answer").html(word);
             $("#loser").show();
+            gameEnd = true;
             $("#play-again").css("display", "flex");
         }
         } else {
@@ -153,6 +156,7 @@ for (i = 0; i < resetButtons.length; i++) {
         }
     
         makeGrid(5,6);
+        gameEnd = false;
     });
 }
 
@@ -220,11 +224,5 @@ $(document).ready(function() {
                 letterbox[i].style.borderColor = "rgb(201, 180, 88)";
             }
         }
-
-
-        
-
-
-
     });
 });
