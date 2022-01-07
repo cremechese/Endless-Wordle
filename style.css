@@ -100,6 +100,12 @@ header {
     cursor: pointer;
 }
 
+#w-close, #l-close {
+    font-size: 30px;
+    padding-right: 25px;
+    cursor: pointer;
+}
+
 #settings-close {
     font-size: 30px;
     padding-right: 25px;
@@ -128,6 +134,15 @@ header {
 #answer-win, #answer-lose {
     font-size: 30px;
     padding-bottom: 24px;
+}
+
+#play-again {
+    display: none;
+    justify-content: center;
+    margin-bottom: 8px;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
 }
 
 #winner, #loser {

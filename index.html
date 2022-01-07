@@ -27,13 +27,17 @@
                 Entered word is not in word list
             </div>
             <div id="winner">
-                <h1>You win!</h1>
+                <div class="header">
+                <h1>You win!</h1><div id="w-close">✕</div>
+                </div>
                 <h2>Congratulations, the word was</h2>
                 <div id="answer-win"></div>
                 <button class="restart">Play again</button>
             </div>
             <div id="loser">
-                <h1>You lose :(</h1>
+                <div class="header">
+                <h1>You lose :(</h1><div id="l-close">✕</div>
+                </div>
                 <h2>You did not guess the word, which was</h2>
                 <div id="answer-lose"></div>
                 <button class="restart">Play again</button>
@@ -80,6 +84,10 @@
                 <input type="checkbox" id="colorblind" name="colorblind" value="colorblind">
                 <label for="colorblind"> Colorblind Mode</label>
             </div>
+        </div>
+        <div id="play-again">
+            <button class="restart">Play again</button>
+        <div id="answer"></div>
         </div>
         <div id="game">
         </div>

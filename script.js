@@ -101,10 +101,14 @@ document.getElementById("enter").addEventListener("click", function(event) {
         round++;
         if(tempWord === "") {
             $("#answer-win").html(word);
+            $("#answer").html(word);
             $("#winner").show();
+            $("#play-again").css("display", "flex");
         } else if (round === 6){
             $("#answer-lose").html(word);
+            $("#answer").html(word);
             $("#loser").show();
+            $("#play-again").css("display", "flex");
         }
         } else {
             $( "#not-a-word" ).show(); 
@@ -162,6 +166,12 @@ $(document).ready(function() {
     $("#settings-close").click( function(){
         $("#help").hide();
         $("#settings").hide();
+    });
+    $("#w-close").click(function(){
+        $("#winner").hide();
+    });
+    $("#l-close").click(function(){
+        $("#loser").hide();
     });
     $(".settings").click( function(){
         $("#settings").toggle();
