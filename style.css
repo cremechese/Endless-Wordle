@@ -169,7 +169,6 @@ header {
 
 #settings-close {
     font-size: 30px;
-    padding-right: 25px;
     cursor: pointer;
 }
 
@@ -232,7 +231,7 @@ header {
 .settings-header {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     gap: 50px;
     margin-bottom: 20px;
 }
@@ -246,6 +245,7 @@ header {
     box-shadow: 0px 0px 20px #888888;
     margin-top: 100px;
     width: min(70vw,300px);
+    padding-bottom: 60px;
 }
 
 #error, #not-a-word {
